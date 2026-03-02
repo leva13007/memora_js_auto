@@ -1,0 +1,1 @@
+For css vars checks need to implement - behavioral token validation

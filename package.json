@@ -1,0 +1,18 @@
+{
+  "name": "memora_js_auto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.0"
+  },
+  "scripts": {
+    "test": "yarn playwright test",
+    "test-ui": "yarn playwright test --ui",
+    "test-project-chromium": "yarn playwright test --project=chromium",
+    "test-debug": "yarn playwright test --debug",
+    "test-codegen": "yarn playwright codegen",
+    "report": "yarn playwright show-report"
+  }
+}
