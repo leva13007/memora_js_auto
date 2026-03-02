@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const tagName = "h1";
 const testId = "test_h1";
-const H1_URL = "?&viewMode=story&id=ui-atoms-h1--defaul";
+const H1_URL = "iframe.html?&viewMode=story&id=ui-atoms-h1--defaul";
 
 const getTheme = (theme: "dark" | "light") => `&globals=theme:${theme}`;
 const getContent = (content: string = "Default H1") => `children:${content}`;

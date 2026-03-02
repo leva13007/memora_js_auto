@@ -14,5 +14,8 @@
     "test-debug": "yarn playwright test --debug",
     "test-codegen": "yarn playwright codegen",
     "report": "yarn playwright show-report"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1"
   }
 }
