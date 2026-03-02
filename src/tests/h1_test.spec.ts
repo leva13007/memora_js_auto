@@ -39,122 +39,34 @@ const componentClassNameReg = /h1/;
 const componentFontNameReg = /Inter/;
 const componentFontWeight = "700";
 
-test('TC_MC_0025_UI_H1_Desktop_LightTheme_Test', async ({ page }) => {
-  const viewport = VieportName.DESKTOP;
-  const theme = Theme.LIGHT;
+const TestCasesList: Record<string, [VieportName, Theme]> = {
+  "TC_MC_0025": [VieportName.DESKTOP, Theme.LIGHT],
+  "TC_MC_0026": [VieportName.DESKTOP, Theme.DARK],
+  "TC_MC_0027": [VieportName.TABLET, Theme.LIGHT],
+  "TC_MC_0028": [VieportName.TABLET, Theme.DARK],
+  "TC_MC_0029": [VieportName.MOBILE, Theme.LIGHT],
+  "TC_MC_0030": [VieportName.MOBILE, Theme.DARK],
+}
 
-  const URL = buildStorybookURL(id, theme, args);
-  await page.goto(URL);
-  page.setViewportSize(Viewports[viewport]);
+test.describe("H1 Component", () => {
+  Object.entries(TestCasesList).forEach(([tcId, data]) => {
+    const viewport = data[0];
+    const theme = data[1];
+    test(`${tcId}_UI_H1_${viewport}_${theme}Theme_Test`, async ({ page }) => {
+      const URL = buildStorybookURL(id, theme, args);
+      await page.goto(URL);
+      page.setViewportSize(Viewports[viewport]);
 
-  const locator = page.getByTestId(testId);
+      const locator = page.getByTestId(testId);
 
-  await expect(locator).toBeVisible();
+      await expect(locator).toBeVisible();
 
-  await expect(locator).toHaveJSProperty("tagName", tagName.toUpperCase());
-  await expect(locator).toHaveClass(componentClassNameReg); // if not undefined
-  await expect(locator).toHaveCSS("font-family", componentFontNameReg); // if not undefined
-  await expect(locator).toHaveCSS("font-size", convertRemToPx(FONT_SIZE_H1[viewport]));
-  await expect(locator).toHaveCSS("font-weight", componentFontWeight);
-  await expect(locator).toHaveCSS("color", COLOR[theme]);
-});
-
-test('TC_MC_0026_UI_H1_Desktop_DarkTheme_Test', async ({ page }) => {
-  const viewport = VieportName.DESKTOP;
-  const theme = Theme.DARK;
-
-  const URL = buildStorybookURL(id, theme, args);
-  await page.goto(URL);
-  page.setViewportSize(Viewports[viewport]);
-
-  const locator = page.getByTestId(testId);
-
-  await expect(locator).toBeVisible();
-
-  await expect(locator).toHaveJSProperty("tagName", tagName.toUpperCase());
-  await expect(locator).toHaveClass(componentClassNameReg); // need to check if it contain
-  await expect(locator).toHaveCSS("font-family", componentFontNameReg); // need to check if it contain
-  await expect(locator).toHaveCSS("font-size", convertRemToPx(FONT_SIZE_H1[viewport]));
-  await expect(locator).toHaveCSS("font-weight", componentFontWeight);
-  await expect(locator).toHaveCSS("color", COLOR[theme]);
-});
-
-test('TC_MC_0027_UI_H1_Tablet_LightTheme_Test', async ({ page }) => {
-  const viewport = VieportName.TABLET;
-  const theme = Theme.LIGHT;
-
-  const URL = buildStorybookURL(id, theme, args);
-  await page.goto(URL);
-  page.setViewportSize(Viewports[viewport]);
-
-  const locator = page.getByTestId(testId);
-
-  await expect(locator).toBeVisible();
-
-  await expect(locator).toHaveJSProperty("tagName", tagName.toUpperCase());
-  await expect(locator).toHaveClass(componentClassNameReg); // need to check if it contain
-  await expect(locator).toHaveCSS("font-family", componentFontNameReg); // need to check if it contain
-  await expect(locator).toHaveCSS("font-size", convertRemToPx(FONT_SIZE_H1[viewport]));
-  await expect(locator).toHaveCSS("font-weight", componentFontWeight);
-  await expect(locator).toHaveCSS("color", COLOR[theme]);
-});
-
-test('TC_MC_0028_UI_H1_Tablet_DarkTheme_Test', async ({ page }) => {
-  const viewport = VieportName.TABLET;
-  const theme = Theme.DARK;
-
-  const URL = buildStorybookURL(id,theme, args);
-  await page.goto(URL);
-  page.setViewportSize(Viewports[viewport]);
-
-  const locator = page.getByTestId(testId);
-
-  await expect(locator).toBeVisible();
-
-  await expect(locator).toHaveJSProperty("tagName", tagName.toUpperCase());
-  await expect(locator).toHaveClass(componentClassNameReg); // need to check if it contain
-  await expect(locator).toHaveCSS("font-family", componentFontNameReg); // need to check if it contain
-  await expect(locator).toHaveCSS("font-size", convertRemToPx(FONT_SIZE_H1[viewport]));
-  await expect(locator).toHaveCSS("font-weight", componentFontWeight);
-  await expect(locator).toHaveCSS("color", COLOR[theme]);
-});
-
-test('TC_MC_0029_UI_H1_Mobile_LightTheme_Test', async ({ page }) => {
-  const viewport = VieportName.MOBILE;
-  const theme = Theme.LIGHT;
-
-  const URL = buildStorybookURL(id, theme, args);
-  await page.goto(URL);
-  page.setViewportSize(Viewports[viewport]);
-
-  const locator = page.getByTestId(testId);
-
-  await expect(locator).toBeVisible();
-
-  await expect(locator).toHaveJSProperty("tagName", tagName.toUpperCase());
-  await expect(locator).toHaveClass(componentClassNameReg); // need to check if it contain
-  await expect(locator).toHaveCSS("font-family", componentFontNameReg); // need to check if it contain
-  await expect(locator).toHaveCSS("font-size", convertRemToPx(FONT_SIZE_H1[viewport]));
-  await expect(locator).toHaveCSS("font-weight", componentFontWeight);
-  await expect(locator).toHaveCSS("color", COLOR[theme]);
-});
-
-test('TC_MC_0030_UI_H1_Mobile_DarkTheme_Test', async ({ page }) => {
-  const viewport = VieportName.MOBILE;
-  const theme = Theme.DARK;
-
-  const URL = buildStorybookURL(id, theme, args);
-  await page.goto(URL);
-  page.setViewportSize(Viewports[viewport]);
-
-  const locator = page.getByTestId(testId);
-
-  await expect(locator).toBeVisible();
-
-  await expect(locator).toHaveJSProperty("tagName", tagName.toUpperCase());
-  await expect(locator).toHaveClass(componentClassNameReg); // need to check if it contain
-  await expect(locator).toHaveCSS("font-family", componentFontNameReg); // need to check if it contain
-  await expect(locator).toHaveCSS("font-size", convertRemToPx(FONT_SIZE_H1[viewport]));
-  await expect(locator).toHaveCSS("font-weight", componentFontWeight);
-  await expect(locator).toHaveCSS("color", COLOR[theme]);
+      await expect(locator).toHaveJSProperty("tagName", tagName.toUpperCase());
+      await expect(locator).toHaveClass(componentClassNameReg); // if not undefined
+      await expect(locator).toHaveCSS("font-family", componentFontNameReg); // if not undefined
+      await expect(locator).toHaveCSS("font-size", convertRemToPx(FONT_SIZE_H1[viewport]));
+      await expect(locator).toHaveCSS("font-weight", componentFontWeight);
+      await expect(locator).toHaveCSS("color", COLOR[theme]);
+    })
+  });
 });
