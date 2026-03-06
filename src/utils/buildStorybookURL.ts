@@ -1,9 +1,6 @@
-const STORYBOOK_BASE = "iframe.html?viewMode=story";
+import { Theme } from "../config/types";
 
-export enum Theme {
-  DARK = "dark",
-  LIGHT = "light"
-}
+const STORYBOOK_BASE = "iframe.html?viewMode=story";
 
 export const buildStorybookURL = (id: string, theme: Theme, args?: Record<string, string>): string => {
   if (!id) throw new Error("The id parameter is required to build the Storybook URL.");
