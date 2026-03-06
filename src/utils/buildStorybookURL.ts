@@ -13,3 +13,8 @@ export const buildStorybookURL = (id: string, theme: Theme, args?: Record<string
 
   return `${STORYBOOK_BASE}&id=${id}&globals=theme:${theme}${argsPart}`;
 }
+
+
+
+// todo write tests for utils!!!!
+// TC name convention? TC_MC_0030_UI_H1_MOBILE_DARK
