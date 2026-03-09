@@ -9,6 +9,10 @@ cp .env.example .env
 
 Then, open the .env file and add the following variable:
 
-```
+```bash
 BASE_URL=http://localhost:3000
+```
+```bash
+or for Storybook from the Stream:
+HOST_URL=https://leva13007.github.io/memora-cards-storybook/
 ```

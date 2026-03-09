@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { buildStorybookURL, Theme } from "./buildStorybookURL";
+import { buildStorybookURL } from "../../src/utils/buildStorybookURL";
+import { Theme } from "../../src/config/types";
 
 describe("buildStorybookURL", () => {
   test("builds URL with required parameters only", () => {

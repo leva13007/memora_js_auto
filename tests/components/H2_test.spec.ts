@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { buildStorybookURL } from '../utils/buildStorybookURL';
-import { convertRemToPx } from '../utils/convertRemToPx';
-import { Theme, VieportName } from '../config/types';
-import { Viewports } from '../config/viewport';
-import { COLOR } from '../data/themeData';
-import { FONT_SIZE_H2 } from '../data/viewportData';
+import { buildStorybookURL } from '../../src/utils/buildStorybookURL';
+import { convertRemToPx } from '../../src/utils/convertRemToPx';
+import { Theme, VieportName } from '../../src/config/types';
+import { Viewports } from '../../src/config/viewport';
+import { COLOR } from '../../src/data/themeData';
+import { FONT_SIZE_H2 } from '../../src/data/viewportData';
 
 const tagName = "h2";
 const testId = "test_h2";

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { convertRemToPx, ONE_REM_IN_PX } from "./convertRemToPx";
+import { convertRemToPx, ONE_REM_IN_PX } from "../../src/utils/convertRemToPx";
 
 describe("convertRemToPx", () => {
   test("converts an integer rem value to px", () => {
