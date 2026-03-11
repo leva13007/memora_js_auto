@@ -13,12 +13,12 @@ describe("buildStorybookURL", () => {
 
   test("builds URL with args", () => {
     const result = buildStorybookURL("ui-atoms-h1--default", Theme.DARK, {
-      content: "Default H1",
+      children: "Default H1",
       "data-testid": "test_h1",
     });
 
     expect(result).toBe(
-      "iframe.html?viewMode=story&id=ui-atoms-h1--default&globals=theme:dark&args=content:Default H1;data-testid:test_h1",
+      "iframe.html?viewMode=story&id=ui-atoms-h1--default&globals=theme:dark&args=children:Default H1;data-testid:test_h1",
     );
   });
 

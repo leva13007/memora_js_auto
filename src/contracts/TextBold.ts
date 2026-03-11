@@ -6,7 +6,7 @@ export const TextBold: ComponentContract = {
   tagName: "span",
   as: ['span', 'p'],
   args: {
-    content: "Default TextBold",
+    children: "Default TextBold",
     "data-testid": "testID_text-bold"
   },
   className: [/(text)[^-]/, /text-bold/],

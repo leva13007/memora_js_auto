@@ -6,7 +6,7 @@ export const TextLight: ComponentContract = {
   tagName: "span",
   as: ['span', 'p'],
   args: {
-    content: "Default TextLight",
+    children: "Default TextLight",
     "data-testid": "testID_text-light"
   },
   className: [/(text)[^-]/, /text-light/],

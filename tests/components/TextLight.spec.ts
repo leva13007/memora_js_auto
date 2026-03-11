@@ -27,7 +27,13 @@ test.describe("TextLight Component", () => {
         await page.goto(URL);
         page.setViewportSize(Viewports[viewport]);
 
-        await assertComponentContract(page, TextLight, theme, viewport, asProps);
+        await assertComponentContract({
+          page,
+          contract: TextLight,
+          theme,
+          viewport,
+          tagName: asProps
+        });
       })
     });
   });

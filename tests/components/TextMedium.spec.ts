@@ -27,7 +27,13 @@ test.describe("TextMedium Component", () => {
         await page.goto(URL);
         page.setViewportSize(Viewports[viewport]);
 
-        await assertComponentContract(page, TextMedium, theme, viewport, asProps);
+        await assertComponentContract({
+          page,
+          contract: TextMedium,
+          theme,
+          viewport,
+          tagName: asProps
+        });
       })
     });
   });

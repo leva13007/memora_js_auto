@@ -1,7 +1,7 @@
 import { ViewportName, Theme } from "../config/types"
 
 export type Args = {
-  content: string,
+  children: string,
   "data-testid": string,
 }
 
@@ -13,15 +13,24 @@ export type ComponentContract = {
   as?: string[],
   args: Args,
   className: RegExp[],
-  fontFamily: RegExp,
-  fontWeight: FontWeight,
-  fontSize: {
+
+  paddingLeft?: number,
+  paddingRight?: number,
+  width?: {
+    [ViewportName.DESKTOP]: string,
+    [ViewportName.TABLET]: string,
+    [ViewportName.MOBILE]: string
+  },
+
+  fontFamily?: RegExp,
+  fontWeight?: FontWeight,
+  fontSize?: {
     [ViewportName.DESKTOP]: number,
     [ViewportName.TABLET]: number,
     [ViewportName.MOBILE]: number
   },
-  color: {
+  color?: {
     [Theme.LIGHT]: string,
     [Theme.DARK]: string,
   }
-}
+} // TODO: Text component pros is not required for non-Text!

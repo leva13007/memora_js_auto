@@ -6,7 +6,7 @@ import { assertComponentContract } from '../../src/assertions/assertComponentCon
 import { H1 } from '../../src/contracts/H1';
 
 const TestCasesList: Record<string, [ViewportName, Theme]> = {
-  "TC_MC_0025_1": [ViewportName.DESKTOP, Theme.LIGHT],
+  "TC_MC_0025": [ViewportName.DESKTOP, Theme.LIGHT],
   "TC_MC_0026": [ViewportName.DESKTOP, Theme.DARK],
   "TC_MC_0027": [ViewportName.TABLET, Theme.LIGHT],
   "TC_MC_0028": [ViewportName.TABLET, Theme.DARK],
@@ -23,7 +23,13 @@ test.describe("H1 Component", () => {
       await page.goto(URL);
       page.setViewportSize(Viewports[viewport]);
 
-      await assertComponentContract(page, H1, theme, viewport, H1.tagName);
+      await assertComponentContract({
+        page,
+        contract: H1,
+        theme,
+        viewport,
+        tagName: H1.tagName
+      });
     })
   });
 });

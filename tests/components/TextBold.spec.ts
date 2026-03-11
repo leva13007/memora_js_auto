@@ -27,7 +27,13 @@ test.describe("TextBold Component", () => {
         await page.goto(URL);
         page.setViewportSize(Viewports[viewport]);
 
-        await assertComponentContract(page, TextBold, theme, viewport, asProps);
+        await assertComponentContract({
+          page,
+          contract: TextBold,
+          theme,
+          viewport,
+          tagName: asProps
+        });
       })
     });
   });

@@ -6,7 +6,7 @@ export const TextMedium: ComponentContract = {
   tagName: "span",
   as: ['span', 'p'],
   args: {
-    content: "Default TextMedium",
+    children: "Default TextMedium",
     "data-testid": "testID_text-medium"
   },
   className: [/(text)[^-]/, /text-medium/],

@@ -23,7 +23,13 @@ test.describe("H2 Component", () => {
       await page.goto(URL);
       page.setViewportSize(Viewports[viewport]);
 
-      await assertComponentContract(page, H2, theme, viewport, H2.tagName);
+      await assertComponentContract({
+        page,
+        contract: H2,
+        theme,
+        viewport,
+        tagName: H2.tagName
+      });
     })
   });
 });

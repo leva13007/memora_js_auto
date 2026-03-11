@@ -5,7 +5,7 @@ export const H1: ComponentContract = {
   id: "ui-atoms-h1--default",
   tagName: "H1",
   args: {
-    content: "Default H1",
+    children: "Default H1",
     "data-testid": "test_h1"
   },
   className: [/h1/],
