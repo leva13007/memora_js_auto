@@ -53,4 +53,18 @@ export const assertComponentContract = async ({
   if (contract.fontSize) await expect(locator).toHaveCSS("font-size", convertRemToPx(contract.fontSize[viewport]));
   if (contract.fontWeight) await expect(locator).toHaveCSS("font-weight", contract.fontWeight);
   if (contract.color && theme) await expect(locator).toHaveCSS("color", contract.color[theme]);
+
+  if (contract.hoverColor && theme) {
+    await locator.hover();
+    await expect(locator).toHaveCSS("color", contract.hoverColor[theme]);
+  }
+
+  if (contract.args.to) {
+    if (contract.args.to.includes("/")) throw new Error("This is unepected simbol for Strorybook!");
+    
+    await expect(locator).toHaveAttribute("href", "/" + contract.args.to)
+  }
+
+  if (contract.cursor) await expect(locator).toHaveCSS("cursor", contract.cursor);
+  if (contract.textDecoration) await expect(locator).toHaveCSS("text-decoration", contract.textDecoration);
 }
