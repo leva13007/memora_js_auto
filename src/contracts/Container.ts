@@ -9,22 +9,36 @@ export const Container: ComponentContract = {
     "data-testid": ""
   },
   className: [/container/],
-  paddingLeft: 1, // TODO: need to test paddings!!!!
-  paddingRight: 1, // TODO: need to test paddings!!!!
+  horizontalCentered: true,
+  paddingLeft: 1,
+  paddingRight: 1,
   width: {
     [ViewportName.DESKTOP]: "1200px",
     [ViewportName.TABLET]: "700px",
-    [ViewportName.MOBILE]: ""
+    [ViewportName.MOBILE]: "100%"
   },
-  // fontFamily: /Inter/,
-  // fontWeight: "700",
-  // fontSize: {
-  //   [ViewportName.DESKTOP]: 2,
-  //   [ViewportName.TABLET]: 1.75,
-  //   [ViewportName.MOBILE]: 1.5
-  // },
-  // color: {
-  //   [Theme.LIGHT]: "rgb(15, 23, 42)",
-  //   [Theme.DARK]: "rgb(245, 247, 251)",
-  // }
+  maxWidth: {
+    [ViewportName.MOBILE]: "100%"
+  }
+}
+
+export const ContainerFluid: ComponentContract = {
+  id: "ui-atoms-container--default",
+  tagName: "div",
+  args: {
+    children: "Default Container Fluid",
+    "data-testid": ""
+  },
+  className: [/container/],
+  horizontalCentered: true,
+  paddingLeft: 0,
+  paddingRight: 0,
+  width: {
+    [ViewportName.DESKTOP]: "100%",
+    [ViewportName.TABLET]: "100%",
+    [ViewportName.MOBILE]: "100%",
+  },
+  maxWidth: {
+    [ViewportName.MOBILE]: "100%"
+  }
 }

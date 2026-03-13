@@ -14,12 +14,18 @@ export type ComponentContract = {
   args: Args,
   className: RegExp[],
 
+  horizontalCentered?: boolean,
   paddingLeft?: number,
   paddingRight?: number,
   width?: {
     [ViewportName.DESKTOP]: string,
     [ViewportName.TABLET]: string,
     [ViewportName.MOBILE]: string
+  },
+  maxWidth?: {
+    [ViewportName.DESKTOP]?: string,
+    [ViewportName.TABLET]?: string,
+    [ViewportName.MOBILE]?: string
   },
 
   fontFamily?: RegExp,
